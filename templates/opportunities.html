@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<h1>Available Opportunities</h1>
+
+{% for opp in opportunities %}
+<div class="card">
+
+    <h3>{{ opp[1] }}</h3>
+
+    <p><strong>Category:</strong> {{ opp[2] }}</p>
+
+    <p><strong>Deadline:</strong> {{ opp[3] }}</p>
+
+    {% if opp[4] %}
+
+<button disabled>
+    Applied
+</button>
+
+{% else %}
+
+<form action="/apply/{{ opp[0] }}" method="POST">
+    <button type="submit">
+        Apply
+    </button>
+</form>
+
+{% endif %}
+
+</div>
+{% endfor %}
+
+<br>
+
+<a href="/dashboard">
+    <button>Back to Dashboard</button>
+</a>

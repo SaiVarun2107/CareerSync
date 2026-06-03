@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+
+<h1>Student Dashboard</h1>
+
+<p>Total Opportunities: {{ total }}</p>
+
+<a href="/opportunities">
+    <button>Browse Opportunities</button>
+</a>
+
+<br><br>
+
+<a href="/applications">
+    <button>My Applications</button>
+</a>
+
+<br><br>
+
+<a href="/logout">
+    <button>Logout</button>
+</a>
+
+</body>
+</html>

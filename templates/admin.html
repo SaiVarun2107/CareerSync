@@ -1,0 +1,47 @@
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+
+<h1>Admin Dashboard</h1>
+
+<a href="/admin/students">
+    <button>View Students</button>
+</a>
+
+<a href="/add">
+    <button>Add Opportunity</button>
+</a>
+
+<a href="/logout">
+    <button>Logout</button>
+</a>
+
+<h2>Manage Opportunities</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Deadline</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for opp in opportunities %}
+    <tr>
+        <td>{{ opp[0] }}</td>
+        <td>{{ opp[1] }}</td>
+        <td>{{ opp[2] }}</td>
+        <td>{{ opp[3] }}</td>
+
+        <td>
+            <a href="/edit/{{ opp[0] }}">
+                <button>Edit</button>
+            </a>
+
+            <a href="/delete/{{ opp[0] }}">
+                <button>Delete</button>
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
